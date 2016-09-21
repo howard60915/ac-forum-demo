@@ -4,13 +4,14 @@ class EventsController < ApplicationController
 	def index
 		@events = Event.all
 	end	
-	#GET/events/new
+	#GET/events/new，因為是新生成，所以name & description內都是空的
 	def new
 		@event = Event.new
 	end	
-	#GET events/show/:id
+	#GET events/show/:id，因為是用find method，所以name & description會有原先event的資料
 	def show
         @event = Event.find(params[:id])
+        @page_title = @event.name
 	end	
 	#GET events/edit/:id
 	def edit
@@ -40,7 +41,7 @@ class EventsController < ApplicationController
 	end	
 
 	private
-
+	#params是屬於白名單（正面表列），只有params裡面認定的才會接起來
 	def event_params
 		params.require(:event).permit( :name, :description)
 	end	

@@ -1,9 +1,6 @@
 <%= form_for @event, :url => { :controller => 'events', :action => 'update', :id => @event } do |f| %>
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
-
-    <%= f.label :description, "Description" %>
-    <%= f.text_area :description %>
+<!-- form_for 前要加上“＝”，才會產生HTML格式的程式碼，才能生成表格，url則是代表要將這張表單往哪裡送 -->
+    <%= render :partial => 'form', :locals => { :f => f } %>
 
     <%= f.submit "Update" %>
 <% end %>
