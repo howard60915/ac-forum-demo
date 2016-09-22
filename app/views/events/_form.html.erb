@@ -1,7 +1,7 @@
 <% if @event.errors.any? %>
       <ul>
       <% @event.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <h1><li><%= msg %></li></h1>
       <% end %>
       </ul>
 <% end %>    
