@@ -1,8 +1,8 @@
-<h1> <%= @page_title%> </h1>
+<h1> Event List </h1>
 <p></p>
 <p></p>
-<!-- <h3><%= @event.name %></h3> -->
+<h3><%= @event.name %></h3>
 
 Description: <%= simple_format @event.description %>
 
-<p><%= link_to 'Back to index', :controller => 'events', :action => 'index' %></p>
+<p><%= link_to 'Back to index', events_path %></p>
