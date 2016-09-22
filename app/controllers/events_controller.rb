@@ -43,14 +43,14 @@ class EventsController < ApplicationController
 	end	
 
 	def update
-	  	if @event.update(event_params)
+	  	if @event.update(event_params)#render會導向一個畫面或format
 
 	  		flash[:notice] = "編輯成功"
 
 	   		redirect_to event_url(@event) #到show頁面時，還是腰給一個id，show才能找到更新的資料
 		
 		else 
-		    render :action => :edit
+		    render :action => :edit #"edit"
 		end    	
 	end
 
