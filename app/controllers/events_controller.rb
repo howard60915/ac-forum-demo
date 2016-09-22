@@ -47,9 +47,10 @@ class EventsController < ApplicationController
 
 	  		flash[:notice] = "編輯成功"
 
-	   		redirect_to event_url(@event) #到show頁面時，還是腰給一個id，show才能找到更新的資料
+	   		redirect_to event_url(@event) #到show頁面時，還是要給一個id，show才能找到更新的資料
 		
 		else 
+			flash[:alert] = "編輯失敗"
 		    render :action => :edit #"edit"
 		end    	
 	end
@@ -71,6 +72,7 @@ class EventsController < ApplicationController
 			
 			redirect_to events_url #告訴瀏覽器  HTTP code 303
 		else
+			flash[:alert] = "新增失敗"
 			render :action => :new #new.html.erb
 		end	
 	end	
