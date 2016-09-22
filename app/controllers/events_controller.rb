@@ -5,6 +5,23 @@ class EventsController < ApplicationController
 	#GET/events
 	def index
 		@events = Event.page(params[:page]).per(15)
+
+		respond_to do |format|
+			format.html
+			format.xml {
+				render :xml => @events.to_xml
+			}
+			format.json {
+				render :xml => @events.to_json
+			}
+			format.atom {
+				@feed_title = "My Event List"
+			}#index.stom.builder
+
+		end	
+
+
+
 	end	
 	#GET/events/new，因為是新生成，所以name & description內都是空的
 	def new
@@ -12,8 +29,14 @@ class EventsController < ApplicationController
 	end	
 	#GET events/show/:id，因為是用find method，所以name & description會有原先event的資料
 	def show
+		@page_title = @event.name
+
+         respond_to do |format|
+		    format.html { @page_title = @event.name } # show.html.erb
+		    format.xml # show.xml.builder
+		    format.json { render :json => { id: @event.id, name: @event.name, created_at: @event.created_at }.to_json }
+		  end
         
-        @page_title = @event.name
 	end	
 	#GET events/edit/:id
 	def edit
