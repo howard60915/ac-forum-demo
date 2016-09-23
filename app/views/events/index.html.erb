@@ -1,22 +1,25 @@
 <h1>Events list</h1>
 
 
-<ul>
+<table class="table">
+<tr>
 <% @events.each do |event| %>
-
-	<li>
+</tr>
+	<td>
 		<%= event.name %>
-		<%= link_to 'Show', event_path(event) %>
+	</td>
+	<td>	
+		<%= link_to 'Show', event_path(event), :class => "btn btn-primary" %>
 		
-		<%= link_to 'Get XML', event_path(event, :format => :xml) %>
-		<%= link_to 'Get JSON', event_path(event, :format => :json) %>
+		<%= link_to 'Get XML', event_path(event, :format => :xml), :class => "btn btn-default" %>
+		<%= link_to 'Get JSON', event_path(event, :format => :json), :class => "btn btn-default" %>
 
-		<%= link_to 'Edit', edit_event_path(event) %>
-  		<%= link_to 'Delete', event_path(event), :method => :delete %>
+		<%= link_to 'Edit', edit_event_path(event, :format => :json), :class => "btn btn-default" %>
+  		<%= link_to 'Delete', event_path(event), :method => :delete, :class => "btn btn-danger" %>
 
-	</li>
+	</td>
 <% end %>
-</ul>
+</table>
 <!-- 如果對使用單複數、new_event、edit_event有疑問，多加善用 rake routes -->
 <%= link_to 'New Event', new_event_path %>
 <%= link_to "Atom feed", events_path(:format => :atom) %>
