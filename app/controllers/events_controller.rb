@@ -60,7 +60,7 @@ class EventsController < ApplicationController
 
 		flash[:alert] = "刪除成功"
 
-	  redirect_to event_url
+	  redirect_to events_path
 	end
 
 	#POST/events/create
