@@ -91,3 +91,7 @@ class EventsController < ApplicationController
 		params.require(:event).permit( :name, :description)
 	end	
 end
+
+
+
+
