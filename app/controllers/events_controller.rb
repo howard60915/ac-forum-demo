@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 				render :xml => @events.to_xml
 			}
 			format.json {
-				render :xml => @events.to_json
+				render :json => @events.to_json
 			}
 			format.atom {
 				@feed_title = "My Event List"
@@ -31,23 +31,27 @@ class EventsController < ApplicationController
 	def show
 		@page_title = @event.name
 
+		result = {id: @event.id, name: @event.name, created_at: @event.created_at}
+
          respond_to do |format|
 		    format.html { @page_title = @event.name } # show.html.erb
 		    format.xml # show.xml.builder
-		    format.json { render :json => { id: @event.id, name: @event.name, created_at: @event.created_at }.to_json }
+		    format.json { render :json => result.to_json }
 		  end
         
 	end	
 	#GET events/edit/:id
 	def edit
+
 	end	
 
 	def update
+
 	  	if @event.update(event_params)#render會導向一個畫面或format
 
 	  		flash[:notice] = "編輯成功"
 
-	   		redirect_to event_url(@event) #到show頁面時，還是要給一個id，show才能找到更新的資料
+	   	redirect_to event_path(@event) #到show頁面時，還是要給一個id，show才能找到更新的資料
 		
 		else 
 			flash[:alert] = "編輯失敗"
