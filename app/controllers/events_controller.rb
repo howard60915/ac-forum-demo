@@ -1,4 +1,4 @@
-eclass EventsController < ApplicationController
+class EventsController < ApplicationController
 	
 	before_action :set_event, :only => [:show, :edit, :update, :destroy]
 	#GET/events/index
@@ -90,7 +90,7 @@ eclass EventsController < ApplicationController
 	def event_params
 		params.require(:event).permit( :name, :description)
 	end	
-end
+end	
 
 
 

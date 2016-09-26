@@ -10,7 +10,7 @@
 	</td>
 	<td>	
 		<%= link_to 'Show', event_path(event), :class => "btn btn-primary" %>
-		
+		<%= link_to 'Attendees', event_attendees_path(event), :class => "btn btn-primary" %>
 		<%= link_to 'Get XML', event_path(event, :format => :xml), :class => "btn btn-default" %>
 		<%= link_to 'Get JSON', event_path(event, :format => :json), :class => "btn btn-default" %>
 
