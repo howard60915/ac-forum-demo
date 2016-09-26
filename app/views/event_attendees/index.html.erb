@@ -9,8 +9,9 @@
 		<%= a.name %>
 	</td>
 	<td>	
-		
-		
+		<%= link_to 'Attendees Detail', event_attendee_path(@event, a), :class => "btn btn-primary" %>
+		<%= link_to 'Edit Attendees', edit_event_attendee_path(@event, a), :class => "btn btn-success" %>
+		<%= link_to 'Attendees Cancel', event_attendee_path(@event, a),:method => :delete, :class => "btn btn-danger" %>
 	</td>
 <% end  %>
 </table>

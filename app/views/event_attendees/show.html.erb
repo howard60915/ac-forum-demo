@@ -1,0 +1,19 @@
+<h1><%= @event.name %> : Attendees</h1>
+
+<table class="table">
+<tr>	
+</tr>
+<td>
+<%= @attendee.name %>
+</td><br \>
+<td>
+<%= @attendee.event_id%>
+</td>	
+</table>
+
+
+
+
+
+
+<%= link_to 'Back to Attendees List', event_attendees_path(@event), :class => "btn btn-primary" %>
