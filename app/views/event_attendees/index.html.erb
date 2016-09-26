@@ -1,0 +1,20 @@
+<h1><%= @event.name %>Attendees list</h1>
+
+
+<table class="table">
+<tr>
+<% @attendees.each do |a| %>
+</tr>
+	<td>
+		<%= a.name %>
+	</td>
+	<td>	
+		
+		
+	</td>
+<% end  %>
+</table>
+
+<%= link_to 'New Attendees', new_event_attendee_path(@event), :class => "btn btn-success" %>
+
+<!-- 如果對使用單複數、new_event、edit_event有疑問，多加善用 rake routes -->
