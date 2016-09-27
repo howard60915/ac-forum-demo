@@ -1,8 +1,15 @@
 <h1>Changing Attending</h1>
 
+<% if @attendee.errors.any? %>
+	<% @attendee.errors.full_messages.each do |msg| %>
+	<div><span style="font-size: 18px">	<%= msg %></span> </div>
+	<% end %>
+<% end %>
+
+
 <%= form_for @attendee, :url => event_attendee_path(@event,@attendee.id), :method => :patch do |f| %>
-	<div class="form-group">
-		<%= f.label :name %>
+	<div class="form-group" style="font-size: 20px">
+		<span ><%= f.label :name %></span>
 		<%= f.text_field :name , :class => "form-control" %>
 	</div>
 
