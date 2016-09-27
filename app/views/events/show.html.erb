@@ -5,7 +5,12 @@
 <p></p>
 <p></p>
 <h3><%= @event.name %></h3>
-<h3><%= @event.category_name %></h3>
+<div><span style="font-size: 25px  "><%= @event.category_name %></span></div>
+<ul>
+	<% @event.groups.each do |g| %>
+	<li><div><span style="font-size: 25px  "><%= g.name  %></span></div></li>
+	<% end %>
+</ul>
 
 Description: <%= simple_format @event.description %>
 
