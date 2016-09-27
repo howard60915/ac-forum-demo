@@ -1,5 +1,16 @@
 <h1>Events list</h1>
 
+<%= form_for @event  do |f| %>
+	<!-- form_for 前要加上“＝”，才會產生HTML格式的程式碼，才能生成表格，url則是代表要將這張表單往哪裡送 -->
+    
+    <%= render :partial => 'form', :locals => { :f => f } %>
+
+    <%= f.submit "Create", :class => "btn btn-success" %>
+    <%= f.submit "Cancel", :class => "btn btn-default" %>
+<% end %>
+
+<br \>
+
 
 <table class="table">
 <tr>
@@ -11,10 +22,9 @@
 	<td>	
 		<%= link_to 'Show', event_path(event), :class => "btn btn-primary" %>
 		<%= link_to 'Attendees', event_attendees_path(event), :class => "btn btn-primary" %>
-		<%= link_to 'Get XML', event_path(event, :format => :xml), :class => "btn btn-default" %>
-		<%= link_to 'Get JSON', event_path(event, :format => :json), :class => "btn btn-default" %>
+		
 
-		<%= link_to 'Edit', edit_event_path(event), :class => "btn btn-default" %>
+		<%= link_to 'Edit', events_path(:id => event.id), :class => "btn btn-default" %>
   		<%= link_to 'Delete', event_path(event), :method => :delete, :class => "btn btn-danger" %>
 
 	</td>

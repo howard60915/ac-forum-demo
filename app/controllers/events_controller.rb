@@ -6,23 +6,26 @@ class EventsController < ApplicationController
 	def index
 		@events = Event.page(params[:page]).per(15)
 
-		respond_to do |format|
-			format.html
-			format.xml {
-				render :xml => @events.to_xml
-			}
-			format.json {
-				render :json => @events.to_json
-			}
-			format.atom {
-				@feed_title = "My Event List"
-			}#index.stom.builder
+		# respond_to do |format|
+		# 	format.html
+		# 	format.xml {
+		# 		render :xml => @events.to_xml
+		# 	}
+		# 	format.json {
+		# 		render :json => @events.to_json
+		# 	}
+		# 	format.atom {
+		# 		@feed_title = "My Event List"
+		# 	}#index.stom.builder
+		# end	
+		
+		if params[:id]
+			@event = Event.find(params[:id]) 
+		else	
+			@event = Event.new
+		end
+	end		
 
-		end	
-
-
-
-	end	
 	#GET/events/new，因為是新生成，所以name & description內都是空的
 	def new
 		@event = Event.new
