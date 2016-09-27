@@ -5,7 +5,7 @@
     
     <%= render :partial => 'form', :locals => { :f => f } %>
 
-    <%= f.submit "Create", :class => "btn btn-success" %>
+    <%= f.submit "Submit", :class => "btn btn-success" %>
     <%= f.submit "Cancel", :class => "btn btn-default" %>
 <% end %>
 
@@ -31,6 +31,5 @@
 <% end %>
 </table>
 <!-- 如果對使用單複數、new_event、edit_event有疑問，多加善用 rake routes -->
-<%= link_to 'New Event', new_event_path, :class => "btn btn-success" %>
-<%= link_to "Atom feed", events_path(:format => :atom), :class => "btn btn-success" %>
+
 <%= paginate @events %>
