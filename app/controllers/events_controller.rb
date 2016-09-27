@@ -91,7 +91,7 @@ class EventsController < ApplicationController
 	end	
 	#params是屬於白名單（正面表列），只有params裡面認定的才會接起來
 	def event_params
-		params.require(:event).permit( :name, :description)
+		params.require(:event).permit( :name, :description, :category_id)
 	end	
 end	
 
