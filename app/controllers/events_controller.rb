@@ -43,6 +43,11 @@ class EventsController < ApplicationController
 		  end
         
 	end	
+	
+	def latest
+	  @events = Event.order("id DESC").limit(3)
+	end
+
 	#GET events/edit/:id
 	def edit
 
