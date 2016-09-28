@@ -36,6 +36,9 @@
 		<%= check_box_tag "ids[]", event.id,false%>
 		<%= event.name %>
 	</td>
+	<td>
+		<%= event.user.try(:short_name)%>
+	</td>
 	<td>	
 		<%= link_to 'Show', event_path(event), :class => "btn btn-success" %>
 		<%= link_to 'Attendees', event_attendees_path(event), :class => "btn btn-primary" %>

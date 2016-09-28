@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
 	
+	before_action :authenticate_user!, :except => [:index]
 	before_action :set_event, :only => [:show, :edit, :update, :destroy, :dashboard]
 	#GET/events/index
 	#GET/events
@@ -104,6 +105,7 @@ class EventsController < ApplicationController
 	#POST/events/create
 	def create
 		@event = Event.new( event_params )
+		@event.user = current_user
 		if @event.save
 
 			flash[:notice] = "新增成功"
