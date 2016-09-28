@@ -11,13 +11,14 @@
 <br \>
 	<%= link_to 'latest Events', latest_events_path ,:class => "btn btn-warning" %>
 <br \>
-
+<%= form_tag bulk_update_events_path do %>
 
 <table class="table">
 <tr>
 <% @events.each do |event| %>
 </tr>
 	<td>
+		<%= check_box_tag "ids[]", event.id,false%>
 		<%= event.name %>
 	</td>
 	<td>	
@@ -32,6 +33,9 @@
 	</td>
 <% end %>
 </table>
+<%= submit_tag "Delete"%>
+<%= submit_tag "Publish"%>
+<% end %>
 <!-- 如果對使用單複數、new_event、edit_event有疑問，多加善用 rake routes -->
 
 <%= paginate @events %>

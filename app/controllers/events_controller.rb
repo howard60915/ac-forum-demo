@@ -43,7 +43,7 @@ class EventsController < ApplicationController
 		  end
         
 	end	
-	
+
 	def latest
 	  @events = Event.order("id DESC").limit(3)
 	end
@@ -73,6 +73,19 @@ class EventsController < ApplicationController
 		flash[:alert] = "刪除成功"
 
 	  redirect_to events_path
+	end
+
+	def bulk_update
+		ids = Array(params[:ids])
+		events = ids.map{|e| Event.find_by_id(e)}.compact
+
+		if params[:commit] == "Delete"
+			events.each {|e| e.destroy}
+		elsif params[:commit] == "Publish"
+			events.each {|e| e.update(:status => "published")}
+		end
+
+		redirect_to events_path
 	end
 
 	#POST/events/create
