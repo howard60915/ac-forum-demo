@@ -8,12 +8,27 @@
     <%= f.submit "Submit", :class => "btn btn-success" %>
     <%= f.submit "Cancel", :class => "btn btn-default" %>
 <% end %>
+
 <br \>
+
+<%= form_tag events_path, :method => :get do %>
+  <%= text_field_tag "keyword" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<br \>
+
 	<%= link_to 'latest Events', latest_events_path ,:class => "btn btn-warning" %>
+
+<br \>
+
+	<%= link_to "Sort by numer", events_path(:order => "name"),:class => "btn btn-default" %>
+	<%= link_to "Sort by default", events_path,:class => "btn btn-default" %>
 <br \>
 <%= form_tag bulk_update_events_path do %>
 
 <table class="table">
+
 <tr>
 <% @events.each do |event| %>
 </tr>
