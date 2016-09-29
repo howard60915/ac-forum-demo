@@ -5,6 +5,13 @@ class EventsController < ApplicationController
 	#GET/events/index
 	#GET/events
 	def index
+		# if params[:group]
+		# 	@group = Group.find_by_name(params[:group])
+		# 	@events = @group.events.page(params[:page]).per(5)
+		# else
+		# 	@events = Event.page(params[:page]).per(5)
+		# end	
+
 		if params[:keyword]
 			@events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ] )
 		else
@@ -105,6 +112,7 @@ class EventsController < ApplicationController
 	#POST/events/create
 	def create
 		@event = Event.new( event_params )
+		@events = Event.page(params[:page]).per(15)
 		@event.user = current_user
 		if @event.save
 
@@ -113,7 +121,7 @@ class EventsController < ApplicationController
 			redirect_to events_url #告訴瀏覽器  HTTP code 303
 		else
 			flash[:alert] = "新增失敗"
-			render :action => :new #new.html.erb
+			render :action => :index #new.html.erb
 		end	
 	end	
 
@@ -124,7 +132,7 @@ class EventsController < ApplicationController
 	end	
 	#params是屬於白名單（正面表列），只有params裡面認定的才會接起來
 	def event_params
-		params.require(:event).permit( :name, :description, :category_id)
+		params.require(:event).permit( :name, :description, :category_id, :group_ids => [])
 	end	
 end	
 
