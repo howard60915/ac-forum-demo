@@ -18,11 +18,11 @@
 
 <div class="form-group">
     <%= f.label :category_id, "Category" %>
-    <%#= f.select :category_id ,Category.all.map{|x| [x.name, x.id]}, :class => "form-control", :prompt => "Please Select" %>
+    <%= f.select :category_id ,Category.all.map{|x| [x.name, x.id]}, {:prompt => "Please Select"}, {:class => "form-control"} %>
     <%#= f.collection_select :category_id ,Category.all ,:id, :name , :class => "form-control", :prompt => "Please Select" %>
-    <% Category.all.each do |c| %>
-    <%= f.radio_button :category_id , c.id %><%= c.name%>
-    <% end %>
+    <%# Category.all.each do |c| %>
+    <%#= f.radio_button :category_id , c.id %><%#= c.name%>
+    <%#end %>
 </div>
 
 <div class="form-group">
