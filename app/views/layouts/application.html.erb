@@ -35,6 +35,9 @@
 
 
         <%= yield %>
+        <% if current_user && current_user.admin? %>
+          <%= link_to "Admin Space" , admin_events_path , :class => "btn btn-warning" %>
+        <% end %>
       </div>
     </div>
   </div>
