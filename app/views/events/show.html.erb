@@ -1,18 +1,35 @@
+<h1><%= @event.name %></h1>
+
+<table class="table">
+	<p><%= @event.status %></p>
+
+		<tr>
+			<td>Category</td>
+			<td>
+				<div>
+					<span style="font-size: 25px  ">
+						<%= @event.category_name %>
+					</span>
+				</div>
+			</td>
+			<td></td>
+		</tr>
 
 
+		<td>Group</td>
+		
+		<% @event.groups.each do |g| %>
 
-<h1> Event List </h1>
-<p></p>
-<p></p>
-<h3><%= @event.name %></h3>
-<p><%= @event.status %></p>	
-<div><span style="font-size: 25px  "><%= @event.category_name %></span></div>
-<ul>
-	<% @event.groups.each do |g| %>
-	<li><div><span style="font-size: 25px  "><%= g.name  %></span></div></li>
+		<td>	
+			<div>
+				<span style="font-size: 25px  ">
+					<%=  g.name  %>
+				</span>
+			</div>
+		</td>
 	<% end %>
-</ul>
-
+	
+</table>
 Description: <%= simple_format @event.description %>
 
 <p><%= link_to 'Back to index', events_path,:class => "btn btn-success" %></p>
