@@ -10,7 +10,8 @@ class EventsController < ApplicationController
 		# 	@events = @group.events.page(params[:page]).per(5)
 		# else
 		# 	@events = Event.page(params[:page]).per(5)
-		# end	
+		# end
+		#  以Group的名字進行排序之語法	
 
 		if params[:keyword]
 			@events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ] )
@@ -112,7 +113,7 @@ class EventsController < ApplicationController
 	#POST/events/create
 	def create
 		@event = Event.new( event_params )
-		@events = Event.page(params[:page]).per(15)
+		@events = Event.page(params[:page]).per(15) #因為create在失敗的時候，並沒有送出@events的直，所以必須在失敗時給予@events可送出的直
 		@event.user = current_user
 		if @event.save
 
