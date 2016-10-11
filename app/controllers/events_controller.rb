@@ -76,7 +76,8 @@ class EventsController < ApplicationController
 	end	
 
 	def update
-
+		@user = current_user
+		@event.user = @user
 	  	if @event.update(event_params)#render會導向一個畫面或format
 
 	  		flash[:notice] = "編輯成功"
@@ -133,7 +134,7 @@ class EventsController < ApplicationController
 	end	
 	#params是屬於白名單（正面表列），只有params裡面認定的才會接起來
 	def event_params
-		params.require(:event).permit( :name, :description, :category_id, :group_ids => [])
+		params.require(:event).permit( :name, :description, :logo , :user_id ,  :category_id, :group_ids => []  )
 	end	
 end	
 

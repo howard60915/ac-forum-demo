@@ -6,6 +6,13 @@
       </ul>
 <% end %>    
 
+
+  <%= f.file_field :logo %>
+
+  <% if @event.logo.exists? %>
+    <%= check_box_tag "remove_upload_file" , "1" %>覆蓋上傳檔案
+  <% end %>
+
 <div class="form-group">
     <%= f.label :name, "Name" %>
     <%= f.text_field :name , :class => "form-control"%>

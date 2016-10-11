@@ -1,5 +1,9 @@
 <h1><%= @event.name %></h1>
 
+<%= image_tag @event.logo.url %>
+<%= image_tag @event.logo.url(:medium) %>
+<%= image_tag @event.logo.url(:thumb) %>
+
 <table class="table">
 	<p><%= @event.status %></p>
 

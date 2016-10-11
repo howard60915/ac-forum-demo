@@ -14,10 +14,13 @@ Rails.application.routes.draw do
   			get :dashboard
   		end	 
 
+
   end
   namespace :admin do 
   		resources :events
   end	
+
+  
 
   resources :people
 	get "welcome/say_hello" => "welcome#say"

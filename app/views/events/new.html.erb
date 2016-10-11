@@ -1,4 +1,4 @@
-1<%= form_for @event, :url => events_path do |f| %>
+<%= form_for @event, :url => events_path do |f| %>
 	<!-- form_for 前要加上“＝”，才會產生HTML格式的程式碼，才能生成表格，url則是代表要將這張表單往哪裡送 -->
     
     <%= render :partial => 'form', :locals => { :f => f } %>
