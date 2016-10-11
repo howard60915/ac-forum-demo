@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style type="text/css">
+			a{
+				margin: 30px 0px;
+				padding: 10px;
+				background-color: #0f0;
+				display: inline-block;
+			}
+			
+			.in{
+				height: 500px;
+				width: 500px;
+				background-color: #000;
+				position: relative;
+			}
+			div{
+				height: 500px;
+				width: 500px;
+				background-color: #ff0;
+				position: relative;
+			}
+			
+				})
+
+
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.btn-add').click(function(){
+				$('div').addClass("in")
+					})
+
+				$('.btn-remove').click(function(){
+				$('div').removeClass("in")
+					})
+
+				$('.btn-toggle').click(function(){
+				$('div').toggleClass("in")
+					})
+
+
+				$('.btn-css').click(function(){
+				$('div').css({'background-color': '#123'})
+					})  //直接把ＣＳＳ格式塞進物件裡，屬於永久性改變，除非把改變的程式碼拔掉
+
+				
+
+
+			})
+		</script>
+
+	</head>
+	<body>
+
+
+		<a href="#" class="btn-add">ADD</a>
+		<a href="#" class="btn-remove">Remove</a>
+		<a href="#" class="btn-toggle">toggle</a>
+		<a href="#" class="btn-css">CSS</a>
+		<div></div>
+
+		
+
+
+
+		
+		
+	</body>
+</html>

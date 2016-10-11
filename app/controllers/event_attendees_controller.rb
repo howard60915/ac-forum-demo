@@ -9,7 +9,7 @@ class EventAttendeesController < ApplicationController
 	end	
 
 	def create
-		@attendee = @event.attendees.build
+		@attendee = @event.attendees.build(attendees_params)
 		if @attendee.save
 			flash[:notice] = "新增參加人員"
 		   redirect_to event_attendees_path(@event,@attendee)

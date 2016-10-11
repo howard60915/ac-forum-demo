@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title Page</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<style type="text/css">
+			.btn-hide{
+				margin: 30px 0px;
+				padding: 10px;
+				background-color: #0f0;
+				display: inline-block;
+			}
+			.btn-show{
+				margin: 30px 0px;
+				padding: 10px;
+				background-color: #00f;
+				display: inline-block;
+			}
+			.btn-toggle{
+				margin: 30px 0px;
+				padding: 10px;
+				background-color: #f00;
+				display: inline-block;
+			}
+			div{
+				height: 500px;
+				width: 500px;
+				background-color: #ff0;
+				position: relative;
+			}
+			
+				})
+
+
+		</style>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.btn-hide').click(function(){
+				$('div').fadeOut()
+					})
+
+				$('.btn-show').click(function(){
+				$('div').fadeIn()
+					})
+
+				$('.btn-toggle').click(function(){
+				$('div').stop(true,false).fadeToggle()
+					})
+
+				$('.btn-animate').click(function(){
+				$('div').animate({top:300,left:100},2000,function(){
+					alert("JIZZ")
+				})
+					});
+
+
+			})
+		</script>
+
+	</head>
+	<body>
+
+
+		<a href="#" class="btn-hide">HIDE</a>
+		<a href="#" class="btn-show">SHOW</a>
+		<a href="#" class="btn-toggle">toggle</a>
+		<a href="#" class="btn-animate">animate</a>
+		<div></div>
+
+		
+
+
+
+		
+		
+	</body>
+</html>
