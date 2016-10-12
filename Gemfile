@@ -37,7 +37,15 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+
+gem 'rest-client'
+
+gem 'ransack'
+
+
 gem "paperclip", "~> 5.0.0"
+
+gem 'omniauth-facebook'
 
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production

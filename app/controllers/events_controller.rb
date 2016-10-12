@@ -76,8 +76,11 @@ class EventsController < ApplicationController
 	end	
 
 	def update
-		@user = current_user
-		@event.user = @user
+		@event.user = current_user
+		if params[:remove_upload_file] == "1"
+			@event.logo = nil
+		end
+
 	  	if @event.update(event_params)#render會導向一個畫面或format
 
 	  		flash[:notice] = "編輯成功"
