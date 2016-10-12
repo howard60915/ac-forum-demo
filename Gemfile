@@ -47,6 +47,8 @@ gem "paperclip", "~> 5.0.0"
 
 gem 'omniauth-facebook'
 
+gem "rails-i18n"
+
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 

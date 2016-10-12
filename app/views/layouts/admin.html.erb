@@ -11,7 +11,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Admin Interface</h1>      
+        <h1>Admin Interface</h1> 
+             
         <% if flash[:notice].present? %>
           <div class="alert alert-success" role ="alert">
             <p style="color: green"><%= flash[:notice] %></p>
@@ -24,7 +25,8 @@
           </div>
         <% end %>  
 
-
+        <%= link_to "中文版", :controller => controller_name, :action => action_name, :locale => "zh-TW" %>
+        <%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %>
         <%= yield %>
       </div>
     </div>

@@ -33,7 +33,8 @@
           <%= link_to('登入', new_session_path(:user)) %> |
           <%= link_to "Facebook log In", user_facebook_omniauth_authorize_path %>
         <% end %> 
-
+        <%= link_to "中文版", :controller => controller_name, :action => action_name, :locale => "zh-TW" %>
+        <%= link_to "English", :controller => controller_name, :action => action_name, :locale => "en" %>
 
         <%= yield %>
         <% if current_user && current_user.admin? %>
