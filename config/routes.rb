@@ -23,6 +23,9 @@ Rails.application.routes.draw do
   
 
   resources :people
+
+  get "/ajax" => "welcome#ajax"
+  get "/ajaxtest" => "welcome#ajaxtest"
 	get "welcome/say_hello" => "welcome#say"
 	get "welcome" => "welcome#index"
 	root "welcome#index"

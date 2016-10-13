@@ -5,4 +5,54 @@
 
 
 
-<p><%= link_to 'Hello!', welcome_say_hello_path %></p>
+
+
+<%= link_to 'Hello!', welcome_say_hello_path, :id => "ajax-load"  %>
+
+
+
+<h1>Ajax Demo</h1>
+
+<%= link_to "Load HTML", ajaxtest_path, :id => "ajaxhtml", :class => "btn btn-primary" %>
+
+<%= link_to "Load Script", ajaxtest_path, :remote => true,   :class => "btn btn-success" %>
+
+<%= link_to "Load JSON", ajaxtest_path, :id => "ajaxjson", :class => "btn btn-info" %>
+
+
+<div id="content">
+	<img src="">
+</div>
+
+<script>
+  // $("#ajaxscript").click(function(e){
+  //   e.preventDefault();
+  //   var url =  $(this).attr("href");
+  //   $.ajax(url, {
+  //     dataType: "script"
+  //   })
+  // })
+  $("#ajaxhtml").click(function(e){
+    e.preventDefault();
+    var url = $(this).attr("href");
+    $.ajax(url, {
+      success: function(response) {
+        $("#content").html(response)
+      }
+    })
+  })
+  $("#ajaxjson").click(function(e){
+     e.preventDefault();
+     var url = $(this).attr("href");
+     $.ajax(url, {
+       dataType: "json",
+       success: function(data) {
+         console.log(data);
+         var html = "<p>" + data.title + "</p>";
+         var img_src = data.picture
+         $("#content").html( html );
+         $("#content img").attr('src',img_src);
+       }
+     })
+   })
+</script>
