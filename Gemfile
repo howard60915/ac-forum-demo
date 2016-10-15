@@ -49,6 +49,8 @@ gem 'omniauth-facebook'
 
 gem "rails-i18n"
 
+gem 'gravtastic'
+
 gem 'pg', group: :production
 gem 'rails_12factor', group: :production
 

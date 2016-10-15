@@ -7,6 +7,10 @@ class User < ApplicationRecord
 
   has_many :events
 
+  include Gravtastic
+  gravtastic :size => 30, :default => 'retro'
+  
+
   def short_name
 	self.email.split("@").first        	
   end       
