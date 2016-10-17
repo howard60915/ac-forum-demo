@@ -12,7 +12,7 @@ class EventsController < ApplicationController
 		# 	@events = Event.page(params[:page]).per(5)
 		# end
 		#  以Group的名字進行排序之語法	
-		
+
 		if params[:keyword]
 			@events = Event.where( [ "name like ?", "%#{params[:keyword]}%" ] )
 		else

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161016081332) do
+ActiveRecord::Schema.define(version: 20161012065928) do
 
   create_table "attendees", force: :cascade do |t|
     t.string   "name"
@@ -50,14 +50,6 @@ ActiveRecord::Schema.define(version: 20161016081332) do
     t.datetime "logo_updated_at"
     t.index ["category_id"], name: "index_events_on_category_id"
     t.index ["user_id"], name: "index_events_on_user_id"
-  end
-
-  create_table "friendships", force: :cascade do |t|
-    t.integer  "inviter_id"
-    t.integer  "accepter_id"
-    t.string   "status"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "groups", force: :cascade do |t|

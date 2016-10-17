@@ -2,11 +2,6 @@ Rails.application.routes.draw do
 
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  
-  post '/friendships/:friend_id' , :to => 'friendships#create' , as: 'add_friend'
-  post '/friendships/:friend_id/accept' , :to => 'friendships#accept' , as: 'accept_friend'
-  delete '/friendships/:friend_id' , :to => 'friendships#destroy' , as: 'unfriend'
-
   resources :events do 
   		resources :attendees , :controller => :event_attendees
 
@@ -33,7 +28,7 @@ Rails.application.routes.draw do
   get "/ajaxtest" => "welcome#ajaxtest"
 	get "welcome/say_hello" => "welcome#say"
 	get "welcome" => "welcome#index"
-	root "users#index"
+	root "welcome#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	
 end
