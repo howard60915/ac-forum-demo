@@ -5,7 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  scope :all_except, ->(user) { where.not(id: user) }
+
+  has_many :friendships, ->{ where(:status => "accepted")}, :class_name => "Friendship", :foreign_key => "inviter_id"
+  has_many :added_friendships, ->{ where(:status => "added")}, :class_name => "Friendship", :foreign_key => "inviter_id"
+  has_many :pending_friendships, ->{ where(:status => "pending")}, :class_name => "Friendship", :foreign_key => "inviter_id"
+
+
   has_many :events
+
 
   include Gravtastic
   gravtastic :size => 30, :default => 'retro'
