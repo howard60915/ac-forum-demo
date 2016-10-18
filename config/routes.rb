@@ -18,7 +18,14 @@ Rails.application.routes.draw do
   end
   namespace :admin do 
   		resources :events
-  end	
+  end
+
+  namespace :api do
+      constraints(host: 'howard.localhost') do
+        resources :users, only: [:index , :show] 
+        root to: "base#index"
+      end  
+  end 	
 
   
 
@@ -28,7 +35,7 @@ Rails.application.routes.draw do
   get "/ajaxtest" => "welcome#ajaxtest"
 	get "welcome/say_hello" => "welcome#say"
 	get "welcome" => "welcome#index"
-	root "welcome#index"
+	# root "welcome#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   	
 end
