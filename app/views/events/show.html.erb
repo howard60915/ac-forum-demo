@@ -1,4 +1,29 @@
+<%= content_for :head do %>
+    <%= tag(:meta, :content => @event.name, :property => "og:title") %>
+    <%= tag(:meta, :content => "article", :property => "og:type") %>
+    <%= tag(:meta, :content => event_url(@event), :property => "og:url") %>
+    <%= tag(:meta, :content => "http://www.fhm.com.tw/article?id=19670", :property => "og:image") %>
+<% end %>
+<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.8&appId=1709952185992091";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<!-- Your share button code -->
+	<div class="fb-like" data-href="http://localhost:3000/events/1" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+
+
+
+
+
+
 <h1><%= @event.name %></h1>
+
+
 
 <%= image_tag @event.logo.url %>
 <%= image_tag @event.logo.url(:medium) %>
@@ -36,4 +61,8 @@
 </table>
 Description: <%= simple_format @event.description %>
 
-<p><%= link_to 'Back to index', events_path,:class => "btn btn-success" %></p>
+<p>
+	<%= link_to 'Back to index', events_path,:class => "btn btn-success" %>
+</p>
+<a class="facebook_share" href="javascript:fbSharer('http://s.nextmedia.com/apple/a.php?i=20160723&amp;sec_id=15335&amp;s=0&amp;a=19707053')"></a>
+<!-- <iframe src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&layout=button_count&size=large&mobile_iframe=false&appId=1709952185992091&width=106&height=28" width="106" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe> -->
